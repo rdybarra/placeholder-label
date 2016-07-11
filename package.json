@@ -2,20 +2,24 @@
   "name": "placeholder-label",
   "version": "1.0.0",
   "description": "Toggles the display of form placeholder text and labels.",
-  "main": "webpack.config.js",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/rdybarra/placeholder-label"
+  },
+  "main": "build/placeholder-label.js",
   "directories": {
     "example": "example"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
     "babel-loader": "^6.2.4",
     "babel-core": "^6.10.4",
     "webpack": "^1.13.1"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Ricky Ybarra",
   "license": "ISC"
 }
