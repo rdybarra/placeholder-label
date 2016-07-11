@@ -1,3 +1,12 @@
+/*
+ * This script takes fields with labels and turn the labels into placeholders.
+ * It then shows the label if there is field value. If there is no field value,
+ * then the placeholder is shown.
+ *
+ * It exports itself by using moduel.exports if available (for common.js),
+ * otherwise is creates a namespace on the global object.
+ */
+
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();

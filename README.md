@@ -41,8 +41,6 @@ I use Babel to convert to es5:
 babel src/placeholder-label.js -o build/placeholder-label.js
 ```
 
-The webpack stuff is confirm that it works with webpack. I use `webpack` to build out `/build/main.js`.
-
 I knew I wanted the code to be used both as an inline script and as a module. I found some guidance here: http://oli.me.uk/2013/07/21/exporting-through-amd-commonjs-and-the-global-object/
 
 Constructive criticism is welcome.
