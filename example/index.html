@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Placeholder Label Example</title>
+
+  <style>
+    label {
+      display: block;
+    }
+
+    label span {
+      display: block;
+    }
+
+    form p {
+      margin: 0;
+      font-size: 0.8em;
+    }
+
+    form .form-element {
+      margin-bottom: 1em;
+    }
+  </style>
+
+</head>
+<body>
+
+  <form class="placeholder-label">
+
+    <div class="form-element">
+      <label for="input1">First Name</label>
+      <input id="input1" type="text">
+      <p><em>This label uses the 'for' attribute to target the field.</em></p>
+    </div>
+
+    <div class="form-element">
+      <label>Last Name
+        <input type="text">
+      </label>
+      <p><em>This is an example of label that wraps a field.</em></p>
+    </div>
+
+    <div class="form-element">
+      <label for="input2">Email Address</label>
+      <input id="input2" type="email">
+    </div>
+
+    <div class="form-element">
+      <label>Favorite Number
+        <input type="number">
+      </label>
+    </div>
+
+    <div class="form-element">
+      <label for="textarea1">Biography</label>
+      <textarea id="textarea1"></textarea>
+    </div>
+
+    <input type="submit" value="Submit">
+
+  </form>
+
+  <!-- <script src="/build/main.js"></script> -->
+  <script src="/build/placeholder-label.js"></script>
+  <script>
+    placeholderLabel('.placeholder-label');
+  </script>
+</body>
+</html>
