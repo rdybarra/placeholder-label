@@ -76,7 +76,7 @@
     }
 
     _getNestedField(label) {
-      return label.querySelector('input, textarea');
+      return label.querySelector('input, textarea, select');
     }
 
     _getFieldByForProperty(label) {
@@ -88,7 +88,15 @@
     }
 
     _setPlaceHolderText(field, desiredText) {
-      field.setAttribute('placeholder', desiredText);
+      if (field.localName === 'select') {
+        let newOption = document.createElement('option');
+        newOption.setAttribute('value', '');
+        newOption.setAttribute('selected', 'selected');
+        newOption.appendChild(document.createTextNode(desiredText));
+        field.insertBefore(newOption, field.firstChild);
+      } else {
+        field.setAttribute('placeholder', desiredText);
+      }
     }
 
     _setupPlaceholderLabelSwapEvents() {
@@ -111,14 +119,24 @@
     }
 
     _placeholderLabelSwap(field, label) {
-
-
-      if (field.value) {
+      if (this._shouldLabelsBeVisible(field, label)) {
         this._showLabel(this._getFunctionalLabel(label));
       }
       else {
         this._hideLabel(this._getFunctionalLabel(label));
       }
+    }
+
+    _shouldLabelsBeVisible(field, label) {
+      if (field.value) {
+        return true;
+      }
+
+      if (field.localName === 'select' && field.selectedIndex !== 0) {
+        return true;
+      }
+
+      return false;
     }
 
     _showLabel(label) {
