@@ -29,7 +29,7 @@
 
     _setLabels() {
       this.labels = [];
-      let parents = document.querySelectorAll(this.selector);
+      let parents = Array.prototype.slice.call(document.querySelectorAll(this.selector));
 
       parents.forEach(form => {
         this.labels = this.labels.concat(Array.prototype.slice.call(form.querySelectorAll('label')));
@@ -54,7 +54,7 @@
     }
 
     _wrapLabelTextNode(label) {
-      label.childNodes.forEach(childNode => {
+      Array.prototype.slice.call(label.childNodes).forEach(childNode => {
         if (childNode.nodeType === 3) {
            if (childNode.nextSibling) {
              let newWrapper = document.createElement('span');

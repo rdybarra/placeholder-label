@@ -39,7 +39,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var _this = this;
 
         this.labels = [];
-        var parents = document.querySelectorAll(this.selector);
+        var parents = Array.prototype.slice.call(document.querySelectorAll(this.selector));
 
         parents.forEach(function (form) {
           _this.labels = _this.labels.concat(Array.prototype.slice.call(form.querySelectorAll('label')));
@@ -71,7 +71,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: '_wrapLabelTextNode',
       value: function _wrapLabelTextNode(label) {
-        label.childNodes.forEach(function (childNode) {
+        Array.prototype.slice.call(label.childNodes).forEach(function (childNode) {
           if (childNode.nodeType === 3) {
             if (childNode.nextSibling) {
               var newWrapper = document.createElement('span');

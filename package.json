@@ -1,6 +1,6 @@
 {
   "name": "placeholder-label",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Toggles the display of form placeholder text and labels.",
   "repository" : {
     "type" : "git",
