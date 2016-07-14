@@ -51,7 +51,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var _this2 = this;
 
         this.labels.forEach(function (label) {
-          _this2._hideLabel(_this2._getFunctionalLabel(label));
+          if (!_this2._shouldLabelBeVisible(_this2._getCorrespondingField(label))) {
+            _this2._hideLabel(_this2._getFunctionalLabel(label));
+          }
         });
       }
     }, {
@@ -153,15 +155,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: '_placeholderLabelSwap',
       value: function _placeholderLabelSwap(field, label) {
-        if (this._shouldLabelsBeVisible(field, label)) {
+        if (this._shouldLabelBeVisible(field)) {
           this._showLabel(this._getFunctionalLabel(label));
         } else {
           this._hideLabel(this._getFunctionalLabel(label));
         }
       }
     }, {
-      key: '_shouldLabelsBeVisible',
-      value: function _shouldLabelsBeVisible(field, label) {
+      key: '_shouldLabelBeVisible',
+      value: function _shouldLabelBeVisible(field) {
         if (field.value) {
           return true;
         }

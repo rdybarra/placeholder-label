@@ -38,7 +38,9 @@
 
     _hideLabels() {
       this.labels.forEach(label => {
-        this._hideLabel(this._getFunctionalLabel(label));
+        if (!this._shouldLabelBeVisible(this._getCorrespondingField(label))) {
+          this._hideLabel(this._getFunctionalLabel(label));
+        }
       });
     }
 
@@ -119,7 +121,7 @@
     }
 
     _placeholderLabelSwap(field, label) {
-      if (this._shouldLabelsBeVisible(field, label)) {
+      if (this._shouldLabelBeVisible(field)) {
         this._showLabel(this._getFunctionalLabel(label));
       }
       else {
@@ -127,7 +129,7 @@
       }
     }
 
-    _shouldLabelsBeVisible(field, label) {
+    _shouldLabelBeVisible(field) {
       if (field.value) {
         return true;
       }
