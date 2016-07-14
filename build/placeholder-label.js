@@ -118,7 +118,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (field.localName === 'select') {
           var newOption = document.createElement('option');
           newOption.setAttribute('value', '');
-          newOption.setAttribute('selected', 'selected');
+
+          if (!this._fieldHasSelectedOption(field)) {
+            newOption.setAttribute('selected', 'selected');
+          }
+
           newOption.appendChild(document.createTextNode(desiredText));
           field.insertBefore(newOption, field.firstChild);
         } else {
@@ -173,6 +177,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
 
         return false;
+      }
+    }, {
+      key: '_fieldHasSelectedOption',
+      value: function _fieldHasSelectedOption(field) {
+        var hasSelectedOption = false;
+
+        Array.prototype.slice.call(field.childNodes).forEach(function (childNode) {
+          if (childNode.defaultSelected) {
+            hasSelectedOption = true;
+          }
+        });
+
+        return hasSelectedOption;
       }
     }, {
       key: '_showLabel',

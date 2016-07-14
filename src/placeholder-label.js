@@ -93,7 +93,11 @@
       if (field.localName === 'select') {
         let newOption = document.createElement('option');
         newOption.setAttribute('value', '');
-        newOption.setAttribute('selected', 'selected');
+
+        if (!this._fieldHasSelectedOption(field)) {
+          newOption.setAttribute('selected', 'selected');
+        }
+
         newOption.appendChild(document.createTextNode(desiredText));
         field.insertBefore(newOption, field.firstChild);
       } else {
@@ -139,6 +143,18 @@
       }
 
       return false;
+    }
+
+    _fieldHasSelectedOption(field) {
+      let hasSelectedOption = false;
+
+      Array.prototype.slice.call(field.childNodes).forEach(childNode => {
+        if (childNode.defaultSelected) {
+          hasSelectedOption = true;
+        }
+      });
+
+      return hasSelectedOption;
     }
 
     _showLabel(label) {
