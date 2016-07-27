@@ -134,6 +134,10 @@
     }
 
     _shouldLabelBeVisible(field) {
+      if (field.getAttribute('type') === 'date') {
+        return true;
+      };
+
       if (field.value) {
         return true;
       }

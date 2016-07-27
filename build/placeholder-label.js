@@ -168,6 +168,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: '_shouldLabelBeVisible',
       value: function _shouldLabelBeVisible(field) {
+        if (field.getAttribute('type') === 'date') {
+          return true;
+        };
+
         if (field.value) {
           return true;
         }
